@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Tambah Data Kamar dan Fasilitas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .form-container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 400px;
+        }
+        .form-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .btn {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: #45a049;
+        }
+        .error-message {
+            color: red;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Tambah Data Kamar</h2>
+        <form id="roomForm" onsubmit="return validateRoomForm()">
+            <div class="form-group">
+                <label for="roomNumber">Nomor Kamar</label>
+                <input type="text" id="roomNumber" name="roomNumber" required>
+                <span id="roomNumberError" class="error-message"></span>
+            </div>
+            <div class="form-group">
+                <label for="roomType">Tipe Kamar</label>
+                <select id="roomType" name="roomType" required>
+                    <option value="">Pilih Tipe</option>
+                    <option value="Single">Single</option>
+                    <option value="Double">Double</option>
+                    <option value="Suite">Suite</option>
+                </select>
+                <span id="roomTypeError" class="error-message"></span>
+            </div>
+            <div class="form-group">
+                <label for="facilities">Fasilitas</label>
+                <textarea id="facilities" name="facilities" rows="4" required></textarea>
+                <span id="facilitiesError" class="error-message"></span>
+            </div>
+            <div class="form-group">
+                <label for="price">Harga Per Malam</label>
+                <input type="number" id="price" name="price" required>
+                <span id="priceError" class="error-message"></span>
+            </div>
+            <button type="submit" class="btn">Simpan Data</button>
+        </form>
+    </div>
+
+    <script>
+        function validateRoomForm() {
+            let isValid = true;
+
+            const roomNumber = document.getElementById('roomNumber');
+            const roomType = document.getElementById('roomType');
+            const facilities = document.getElementById('facilities');
+            const price = document.getElementById('price');
+
+            const roomNumberError = document.getElementById('roomNumberError');
+            const roomTypeError = document.getElementById('roomTypeError');
+            const facilitiesError = document.getElementById('facilitiesError');
+            const priceError = document.getElementById('priceError');
+
+            roomNumberError.textContent = '';
+            roomTypeError.textContent = '';
+            facilitiesError.textContent = '';
+            priceError.textContent = '';
+
+            if (!roomNumber.value.trim()) {
+                roomNumberError.textContent = 'Nomor kamar tidak boleh kosong.';
+                isValid = false;
+            }
+
+            if (!roomType.value.trim()) {
+                roomTypeError.textContent = 'Pilih tipe kamar.';
+                isValid = false;
+            }
+
+            if (!facilities.value.trim()) {
+                facilitiesError.textContent = 'Fasilitas tidak boleh kosong.';
+                isValid = false;
+            }
+
+            if (!price.value.trim() || price.value <= 0) {
+                priceError.textContent = 'Harga harus lebih dari 0.';
+                isValid = false;
+            }
+
+            if (isValid) {
+                alert('Data berhasil disimpan!');
+            }
+            return isValid;
+        }
+    </script>
+</body>
+</html>

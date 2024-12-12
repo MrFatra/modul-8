@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tambah Data Kamar dan Fasilitas</title>
+    <style>
+        body {
+            background-color: #D4F6FF;
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        form {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 15px;
+        }
+
+        label {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        input:not([type="checkbox"]),
+        select {
+            width: 100%;
+            padding: 8px;
+            font-size: 1em;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .button-group {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .button-group button {
+            padding: 10px 20px;
+            font-size: 1em;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .button-group button[name="save"] {
+            background-color: #006BFF;
+        }
+
+        .button-group button[name="cancel"] {
+            background-color: #FFF100;
+            color: #333;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Data Kamar</h1>
+    <form method="get">
+        <div class="form-group">
+            <label for="id_kamar">Id Kamar:</label>
+            <select name="input">
+                <option value="-" selected>--Pilih--</option>
+                <option value="001">001</option>
+                <option value="002">002</option>
+                <option value="003">003</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="gambar">Gambar Ruangan:</label>
+            <input type="file" id="gambar" name="gambar" accept="image/*" required />
+        </div>
+
+        <div class="form-group">
+            <label for="jenis_kamar">Jenis Kamar:</label>
+            <select name="input">
+                <option value="-" selected>--Pilih--</option>
+                <option value="STANDAR">STANDAR</option>
+                <option value="DELUXE">DELUXE</option>
+                <option value="FAMILY">FAMILY</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="harga_kamar">Harga:</label>
+            <input type="text" id="harga_kamar" name="harga_kamar" required />
+        </div>
+
+        <div class="form-group">
+            <label for="fasilitas_kamar">Fasilitas:</label>
+            <input type="text" id="fasilitas_kamar" name="fasilitas_kamar" required />
+        </div>
+
+        <div class="button-group">
+            <button name="save" value="simpan">SIMPAN</button>
+            <button name="cancel" value="batal">BATAL</button>
+        </div>
+    </form>
+
+    <h1>Data Fasilitas</h1>
+    <form method="get">
+        <div class="form-group">
+            <label for="id_fasilitas">Id Fasilitas:</label>
+            <select name="input">
+                <option value="-" selected>--Pilih--</option>
+                <option value="001">001</option>
+                <option value="002">002</option>
+                <option value="003">003</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="nama_fasilitas">Nama Fasilitas:</label>
+            <select name="input">
+                <option value="-" selected>--Pilih--</option>
+                <option value="Fasilitas A">Fasilitas A</option>
+                <option value="Fasilitas B">Fasilitas B</option>
+                <option value="Fasilitas C">Fasilitas C</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="harga_weekend">Harga Weekend:</label>
+            <input type="number" id="harga_weekend" name="harga_weekend" required />
+        </div>
+
+        <div class="form-group">
+            <label for="harga_weekday">Harga Weekday:</label>
+            <input type="number" id="harga_weekday" name="harga_weekday" required />
+        </div>
+
+        <div class="form-group">
+            <label for="kuota">Kuota:</label>
+            <input type="number" id="kuota" name="kuota" required />
+        </div>
+
+        <div class="form-group">
+            <label for="jam_buka">Jam Buka:</label>
+            <input type="time" id="jam_buka" name="jam_buka" required />
+        </div>
+
+        <div class="form-group">
+            <label for="jam_tutup">Jam Tutup:</label>
+            <input type="time" id="jam_tutup" name="jam_tutup" required />
+        </div>
+
+        <div class="button-group">
+            <button name="save" value="simpan">SIMPAN</button>
+            <button name="cancel" value="batal">BATAL</button>
+        </div>
+    </form>
+</body>
+
+</html>

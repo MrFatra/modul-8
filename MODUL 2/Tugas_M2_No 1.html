@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tugas M2 No 1</title>
+    <style>
+        body {
+            background-color: #D4F6FF;
+        }
+
+        input:not([type="checkbox"]) {
+            width: 100%;
+        }
+
+        select {
+            width: 100%;
+        }
+
+        label {
+            display: flex;
+            align-items: start;
+            justify-content: start;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Form Pemesanan</h1>
+    <form method="get">
+        <table border="0" style="width: 100%;">
+            <tr>
+                <td><label for="input">Id Pemesanan</label></td>
+                <td>
+                    <input type="number" id="id_pemesanan" name="id_pemesanan" pattern="[0-9]" required />
+                </td>
+            </tr>
+            <tr>
+                <td><label for="input">Nama Pemesanan</label></td>
+                <td>
+                    <input type="text" id="nama" name="nama" pattern="[0-9]" required />
+                </td>
+            </tr>
+            <tr>
+                <td><label for="input">Nomor Identitas</label></td>
+                <td>
+                    <input type="number" id="no_identitas" name="no_identitas" pattern="[0-9]" required />
+                </td>
+            </tr>
+            <tr>
+                <td><label for="input">Tipe Kamar</label></td>
+                <td>
+                    <select name="input">
+                        <option value="-" selected>--Pilih--</option>
+                        <option value="STANDAR">STANDAR</option>
+                        <option value="DELUXE">DELUXE</option>
+                        <option value="FAMILY">FAMILY</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="input">Harga</label></td>
+                <td>
+                    <input type="text" id="Harga" name="Harga" pattern="[0-9]" required />
+                </td>
+            </tr>
+            <tr>
+                <td><label for="inputText">Tanggal Pesan</label></td>
+                <td>
+                    <input type="date" id="tgl_pesan" name="tgl_pesan" required />
+                </td>
+            </tr>
+            <tr>
+                <td><label for="input">Durasi Menginap</label></td>
+                <td style="display: flex;">
+                    <input type="number" id="durasi" name="durasi" pattern="[0-9]" required />
+                    <label>Hari</label>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="input">Termasuk Breafast</label></td>
+                <td style="display: flex;">
+                    <input type="checkbox" id="ya" name="ya" value="ya" pattern="[0-9]" required />
+                    <span style="margin-right: 20px;">Ya</span>
+                    <input type="checkbox" id="tidk" name="tidak" value="tidak" pattern="[0-9]" required />
+                    <label>Tidak</label>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="input">Total Bayar</label></td>
+                <td>
+                    <input type="text" id="bayar" name="bayar" pattern="[0-9]" required />
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center">
+                    <button name="save" value="simpan" style="background-color: #006BFF;">SIMPAN</button>
+                    <button name="cancel" value="batal" style="background-color: #FFF100;">BATAL</button>
+                </td>
+            </tr>
+
+        </table>
+    </form>
+</body>
+
+</html>

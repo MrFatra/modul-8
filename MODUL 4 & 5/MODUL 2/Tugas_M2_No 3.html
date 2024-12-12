@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Pemesanan</title>
+    <style>
+        body {
+            background-color: #D4F6FF;
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        form {
+            max-width: 500px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #f5f7fa;
+            border-radius: 8px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 15px;
+        }
+
+        label {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        input:not([type="checkbox"]),
+        select {
+            width: 100%;
+            padding: 8px;
+            font-size: 1em;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .checkbox-group label {
+            font-weight: normal;
+            margin: 0;
+        }
+
+        .button-group {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .button-group button {
+            padding: 10px 20px;
+            font-size: 1em;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100px;
+        }
+
+        .button-group button[name="save"] {
+            background-color: #006BFF;
+        }
+
+        .button-group button[name="cancel"] {
+            background-color: #FFF100;
+            color: #333;
+        }
+
+        .button-group button:hover {
+            opacity: 0.9;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Form Pemesanan</h1>
+    <form method="get">
+        <div class="form-group">
+            <label for="id_pemesanan">Id Pemesanan:</label>
+            <input type="number" id="id_pemesanan" name="id_pemesanan" required />
+        </div>
+
+        <div class="form-group">
+            <label for="nama">Nama Pemesan:</label>
+            <input type="text" id="nama" name="nama" required />
+        </div>
+
+        <div class="form-group">
+            <label for="no_identitas">Nomor Identitas:</label>
+            <input type="number" id="no_identitas" name="no_identitas" required />
+        </div>
+
+        <div class="form-group">
+            <label for="prodi">Tipe Kamar:</label>
+            <select name="prodi" id="prodi">
+                <option value="-" selected>--Pilih--</option>
+                <option value="STANDAR">STANDAR</option>
+                <option value="DELUXE">DELUXE</option>
+                <option value="FAMILY">FAMILY</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="Harga">Harga:</label>
+            <input type="text" id="Harga" name="Harga" required />
+        </div>
+
+        <div class="form-group">
+            <label for="tgl_pesan">Tanggal Pesan:</label>
+            <input type="date" id="tgl_pesan" name="tgl_pesan" required />
+        </div>
+
+        <div class="form-group">
+            <label for="durasi">Durasi Menginap:</label>
+            <div style="display: flex; align-items: center;">
+                <input type="number" id="durasi" name="durasi" required style="flex: 1;" />
+                <span style="margin-left: 10px;">Hari</span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Termasuk Breakfast:</label>
+            <div class="checkbox-group">
+                <label><input type="checkbox" id="ya" name="breakfast" value="ya" /> Ya</label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="bayar">Total Bayar:</label>
+            <input type="text" id="bayar" name="bayar" required />
+        </div>
+
+        <div class="button-group">
+            <button name="save" value="simpan">Simpan</button>
+            <button name="cancel" value="batal">Batal</button>
+        </div>
+    </form>
+</body>
+
+</html>

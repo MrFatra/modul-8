@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show/Hide Gambar</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        #gambar {
+            width: 300px;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <button id="tampilkan">Tampilkan Gambar</button>
+    <button id="sembunyikan">Sembunyikan Gambar</button>
+    <br><br>
+    <img id="gambar" src="https://via.placeholder.com/300" alt="Contoh Gambar" style="display: none;">
+
+    <script>
+        $(document).ready(function () {
+            // Menampilkan gambar
+            $("#tampilkan").click(function () {
+                $("#gambar").show(); // Menampilkan elemen
+            });
+
+            // Menyembunyikan gambar
+            $("#sembunyikan").click(function () {
+                $("#gambar").hide(); // Menyembunyikan elemen
+            });
+        });
+    </script>
+</body>
+</html>

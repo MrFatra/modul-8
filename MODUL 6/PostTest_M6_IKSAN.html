@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mengubah Isi dengan jQuery</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+
+<body>
+    <div id="fakultas">fkom</div>
+    <input type="text" id="universitas" value="uniku">
+    <script>
+        $(document).ready(function () {
+            $("#fakultas").text("fakultas ilmu komputer");
+            $("#universitas").val("universitas kuningan");
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tugas_M1_NO 2</title>
+    <style>
+        header {
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        header .left {
+            display: flex;
+            align-items: center;
+        }
+
+        header .left img {
+            width: 85px;
+            height: 85px;
+            margin-right: 10px;
+        }
+
+        header .right img {
+            width: 575px;
+            height: 95px;
+            margin-right: 5px;
+        }
+        nav {
+            background-color: aqua;
+            display: inline-block;
+            width: 100;
+        }
+
+        nav ul {
+            padding: 0px;
+            margin: 0px;
+            list-style: none;
+        }
+
+        nav ul li {
+            float: left;
+            background-color: brown;
+        }
+
+        nav a {
+            display: block;
+            padding: 0 10px;
+            color: white;
+            line-height: 60px;
+            font-size: 12px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            background-color: #000;
+        }
+
+        nav ul ul {
+            display: none;
+            position: absolute;
+            top: 60px;
+        }
+
+        nav ul li:hover>ul {
+            display: block;
+        }
+
+        nav ul ul li {
+            width: 170px;
+            float: none;
+            display: list-item;
+            position: relative;
+        }
+
+        nav ul ul ul li {
+            position: relative;
+            top: -50px;
+            left: 170px;
+        }
+
+        nav ul ul ul ul li {
+            position: relative;
+            top: -50px;
+            left: 170px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <header 
+        style="
+            display: flex; 
+            justify-content:space between; 
+            align-items: center; 
+            padding: 0 20px;" 
+        >
+        <h1>De'Jehans Hotel</h1>
+        <img 
+            src="Depan Hotel.png" 
+            alt=" " 
+            width="340px" 
+            height="100px"
+        />
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="">HOME</a></li>
+            <li><a href="">KAMAR</a></li>
+            <li>
+                <a href="">FASILITAS</a>
+                <ul>
+                    <li><a href="">PETUALANG ALAM</a></li>
+                    <li>
+                        <a href="">KOLAM RENANG</a>
+                        <ul>
+                            <li><a href="">SUMBER AIR PANAS</a></li>
+                            <li>
+                                <a href="">KOLAM ANA & DEWASA</a>
+                                <ul>
+                                    <li><a href="">REGULER</a></li>
+                                    <li><a href="">PREMIUM</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a href="">PUSAT KEBUGARAN</a></li>
+                    <li><a href="">RUANG RAPAT</a></li>
+                </ul>
+            </li>
+            <li><a href="">PESAN SEKARANG</a></li>
+        </ul>
+    </nav>
+
+    <main style="flex: 1; display: flex; gap: 50px; padding: 20px">
+        <div 
+            class="videos" 
+            style="display: flex; flex-direction: column; gap: 10px"
+        >
+            <iframe
+                src="https://www.youtube.com/embed/xNQBl4u8OFA" 
+                frameborder="0" 
+                allowfullscreen 
+                width="300px"
+                height="200px"
+            ></iframe>
+            <iframe 
+                src="https://www.youtube.com/embed/xNQBl4u8OFA" 
+                frameborder="0" 
+                allowfullscreen 
+                width="300px"
+                height="200px" 
+            ></iframe> 
+            <iframe 
+                src="https://www.youtube.com/embed/xNQBl4u8OFA" 
+                frameborder="0" 
+                allowfullscreen 
+                width="300px"
+                height="200px"
+            ></iframe>
+        </div>
+
+        <div>
+            <table>
+                <tr>
+                    <td>
+                        <img
+                            src="Kamar 1.png"
+                            alt=""
+                            width="350px"
+                            height="200px"/>
+                    </td>
+                    <td>
+                        <img
+                            src="Kamar 1.png"
+                            alt=""
+                            width="350px"
+                            height="200px"/>
+                    </td>
+                    <td>
+                        <img
+                            src="Kamar 1.png"
+                            alt=""
+                            width="350px"
+                            height="200px"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <img
+                            src="Kamar 1.png"
+                            alt=""
+                            width="350px"
+                            height="200px"/>
+                    </td>
+                    <td>
+                        <img
+                            src="Kamar 1.png"
+                            alt=""
+                            width="350px"
+                            height="200px"/>
+                    </td>
+                    <td>
+                        <img
+                            src="Kamar 1.png"
+                            alt=""
+                            width="350px"
+                            height="200px"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <img
+                            src="Kamar 1.png"
+                            alt=""
+                            width="350px"
+                            height="200px"/>
+                    </td>
+                    <td>
+                        <img
+                            src="Kamar 1.png"
+                            alt=""
+                            width="350px"
+                            height="200px"/>
+                    </td>
+                    <td>
+                        <img
+                            src="Kamar 1.png"
+                            alt=""
+                            width="350px"
+                            height="200px"/>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </main>
+
+    <footer
+        style="
+            flex: 0 0 5%;
+            background-color: aqua;
+            text-align: center;
+            padding: 10px; ">
+        <p>©2024 De'Jehans Hotel</p>
+    </footer>
+</body>
+</html>

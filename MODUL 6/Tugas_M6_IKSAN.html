@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tugas_M6_IKSAN</title>
+    <script src="jquery-3.7.1.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #D4F6FF;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .container {
+            background-color: #fff;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        table {
+            width: 100%;
+            border-spacing: 0;
+            border-collapse: collapse;
+        }
+
+        td {
+            padding: 10px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        input[type="date"],
+        select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        input[type="checkbox"] {
+            margin-top: 5px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        button[type="reset"] {
+            background-color: #ffc107;
+            color: #fff;
+        }
+
+        button:hover {
+            opacity: 0.9;
+        }
+
+        .button-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        $(document).ready(function () {
+            function HargPerKamar() {
+                var jenisKamar = $("#kamarHotel").val();
+                var harga = 0;
+                if (jenisKamar === "std") {
+                    harga = 300000;
+                } else if (jenisKamar === "dlx") {
+                    harga = 500000;
+                } else if (jenisKamar === "fml") {
+                    harga = 800000;
+                }
+                $("#Harga").val(harga);
+                hitungPembayaran();
+            }
+
+            function hitungPembayaran() {
+                var harga = parseInt($("#Harga").val()) || 0;
+                var durasi = parseInt($("#DurasiMenginap").val()) || 1;
+                var breakfast = $("#TermasukBreakfast").is(":checked");
+                var totalBayar = harga * durasi;
+
+                if (breakfast) {
+                    totalBayar += 80000 * durasi;
+                }
+
+                if (durasi > 3) {
+                    totalBayar -= totalBayar * 0.10; // Diskon 10%
+                }
+
+                $("#TotalBayar").val(totalBayar);
+            }
+
+            function validasi() {
+                var nomorIdentitas = $("#NomorIdentitas").val();
+                if (nomorIdentitas.length !== 16) {
+                    alert("Nomor identitas harus 16 digit.");
+                    return false;
+                }
+                return true;
+            }
+
+            function simpan() {
+                if (!validasi()) {
+                    return;
+                }
+
+                var idPemesan = $("#idPemesan").val();
+                var namaPemesan = $("#NamaPemesan").val();
+                var nomorIdentitas = $("#NomorIdentitas").val();
+                var kamarHotel = $("#kamarHotel option:selected").text();
+                var harga = $("#Harga").val();
+                var tanggalPesan = $("#TanggalPesan").val();
+                var durasiMenginap = $("#DurasiMenginap").val();
+                var termasukBreakfast = $("#TermasukBreakfast").is(":checked") ? "Ya" : "Tidak";
+                var totalBayar = $("#TotalBayar").val();
+
+                $("#Container").html(`
+                    <h1>Data Pemesanan</h1>
+                    <table>
+                        <tr><td>Id Pemesan:</td><td>${idPemesan}</td></tr>
+                        <tr><td>Nama Pemesan:</td><td>${namaPemesan}</td></tr>
+                        <tr><td>Nomor Identitas:</td><td>${nomorIdentitas}</td></tr>
+                        <tr><td>Tipe Kamar:</td><td>${kamarHotel}</td></tr>
+                        <tr><td>Harga:</td><td>${harga}</td></tr>
+                        <tr><td>Tanggal Pesan:</td><td>${tanggalPesan}</td></tr>
+                        <tr><td>Durasi Menginap:</td><td>${durasiMenginap} hari</td></tr>
+                        <tr><td>Termasuk Breakfast:</td><td>${termasukBreakfast}</td></tr>
+                        <tr><td>Total Bayar:</td><td>${totalBayar}</td></tr>
+                    </table>
+                `);
+            }
+
+            $("#kamarHotel").on("change", HargPerKamar);
+            $("#DurasiMenginap, #TermasukBreakfast").on("change", hitungPembayaran);
+            $("form").on("submit", function (e) {
+                e.preventDefault();
+                simpan();
+            });
+        });
+    </script>
+
+    <div class="container">
+        <h1>Form Pemesanan</h1>
+        <form>
+            <table>
+                <tr>
+                    <td><label for="idPemesan">Id Pemesan</label></td>
+                    <td><input type="number" id="idPemesan" name="idPemesan" required></td>
+                </tr>
+                <tr>
+                    <td><label for="NamaPemesan">Nama Pemesan</label></td>
+                    <td><input type="text" id="NamaPemesan" name="NamaPemesan" required></td>
+                </tr>
+                <tr>
+                    <td><label for="NomorIdentitas">Nomor Identitas</label></td>
+                    <td><input type="number" id="NomorIdentitas" name="NomorIdentitas" required></td>
+                </tr>
+                <tr>
+                    <td><label for="kamarHotel">Tipe Kamar</label></td>
+                    <td>
+                        <select id="kamarHotel" required>
+                            <option value="-" selected>--pilih--</option>
+                            <option value="std">Standard</option>
+                            <option value="dlx">Deluxe</option>
+                            <option value="fml">Family</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="Harga">Harga</label></td>
+                    <td><input type="number" id="Harga" readonly></td>
+                </tr>
+                <tr>
+                    <td><label for="TanggalPesan">Tanggal Pesan</label></td>
+                    <td><input type="date" id="TanggalPesan" required></td>
+                </tr>
+                <tr>
+                    <td><label for="DurasiMenginap">Durasi Menginap</label></td>
+                    <td>
+                        <input type="number" id="DurasiMenginap" min="1" required> Hari
+                    </td>
+                </tr>
+                <tr>
+                    <td>Termasuk Breakfast</td>
+                    <td><input type="checkbox" id="TermasukBreakfast"> Ya</td>
+                </tr>
+                <tr>
+                    <td><label for="TotalBayar">Total Bayar</label></td>
+                    <td><input type="number" id="TotalBayar" readonly></td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="center">
+                        <button type="submit">Simpan</button>
+                        <button type="reset">Batal</button>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+    <div id="Container"></div>
+</body>
+
+</html>
